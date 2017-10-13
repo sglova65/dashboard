@@ -1,0 +1,454 @@
+<style>
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 25px;
+	}
+	.switch input {display:none;}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #03A105;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 20px;
+		width: 20px;
+		left: 4px;
+		bottom: 3px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	input:checked + .slider {
+		background-color: #ccc;
+	}
+
+	input:focus + .slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 25px;
+	}
+
+	.slider.round:before {
+		border-radius: 50%;
+	}
+</style>
+<script>
+
+    $(function () {
+        var scoremin = 0;
+        var scoremax = 100;
+        decorateboth = false;
+        valueseparator = "-";
+        hideminmax= false;
+        isgrid = false;
+        $("#score1").ionRangeSlider({
+            type: "double",
+            min: scoremin,
+            max: scoremax,
+            from: 40,
+            to: 60,
+            decorate_both: decorateboth,
+            values_separator: valueseparator,
+            hide_min_max: hideminmax,
+			grid: isgrid
+        });
+
+        $("#score2").ionRangeSlider({
+            type: "double",
+            min: scoremin,
+            max: scoremax,
+            from: 61,
+            to: 75,
+            decorate_both: decorateboth,
+            values_separator: valueseparator,
+            hide_min_max: hideminmax,
+            grid: isgrid
+        });
+
+        $("#score3").ionRangeSlider({
+            type: "double",
+            min: scoremin,
+            max: scoremax,
+            from: 76,
+            to: 100,
+            decorate_both: decorateboth,
+            values_separator: valueseparator,
+            hide_min_max: hideminmax,
+            grid: isgrid
+        });
+
+        $("#threshold1").ionRangeSlider({
+            type: "double",
+            min: 50,
+            max: 100000,
+            from: 500,
+            to: 2000,
+            decorate_both: decorateboth,
+            values_separator: valueseparator,
+            hide_min_max: hideminmax,
+            grid: isgrid
+        });
+
+        $("#threshold2").ionRangeSlider({
+            type: "double",
+            min: 500,
+            max: 100000,
+            from: 2000,
+            to: 10000,
+            decorate_both: decorateboth,
+            values_separator: valueseparator,
+            hide_min_max: hideminmax,
+            grid: isgrid
+        });
+
+        $("#threshold3").ionRangeSlider({
+            type: "double",
+            min: 5000,
+            max: 100000,
+            from: 8000,
+            to: 10000,
+            decorate_both: decorateboth,
+            values_separator: valueseparator,
+            hide_min_max: hideminmax,
+            grid: isgrid
+        });
+    });
+</script>
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="verysmall">
+				<div class="subtitle">Tiers</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="verysmall">
+				<div class="title">1</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="verysmall">
+				<div class="title">2</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="verysmall">
+				<div class="title">3</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body  classes="small">
+				<div class="subtitle">Score</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="col-sm-8">
+					<div class="row slider-container">
+						<input type="text" id="score1" value="" name="score1" />
+					</div>
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="row slider-container">
+					<input type="text" id="score2" value="" name="score2" />
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="row slider-container">
+					<input type="text" id="score3" value="" name="score3" />
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="subtitle">Threshold</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="col-sm-8">
+					<div class="row slider-container">
+						<input type="text" id="threshold1" value="" name="threshold1" />
+					</div>
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="row slider-container">
+					<input type="text" id="threshold2" value="" name="threshold2" />
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="small">
+				<div class="row slider-container">
+					<input type="text" id="threshold3" value="" name="threshold3" />
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="large">
+				<div class="subtitle">Authenticators</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="large">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>Fingerprint</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Palm</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Voice</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Face</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Eye</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Behavior</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body  classes="large">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>Fingerprint</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Palm</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Voice</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Face</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Eye</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Behavior</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="large">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>Fingerprint</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Palm</td><td><span class="text-success"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Voice</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Face</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Eye</td><td><span class="text-success"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Behavior</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<div class="subtitle">Accepted Documents</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>State ID</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Passport</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Birth Certificate</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>SS Card</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>State ID</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Passport</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Birth Certificate</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>SS Card</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>State ID</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Passport</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Birth Certificate</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>SS Card</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<div class="subtitle">Data Sources</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>World Check</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Clear</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Source</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>US Government</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>World Check</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Clear</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Source</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						<tr><td>US Government</td><td><span class="text-success"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body classes="mediumlarge">
+				<!-- Rounded switch -->
+				<rd-widget-body classes=“small no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+						<tr><td>World Check</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Clear</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>Source</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						<tr><td>US Government</td><td><span class="text-success"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+
+<head>
+    <script type="text/javascript" src="components/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.css">
+    <link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.skinHTML5.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <script type="text/javascript" src="components/ion.rangeSlider.min.js"></script>
+
+
+
+    <style>
+    html {
+    height: 100%;
+    }
+    body {
+    height: 100%;
+    overflow: hidden;
+    margin: 40px 15px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    }
+    .range-slider {
+    position: relative;
+    height: 80px;
+    }
+    .extra-controls {
+    position: relative;
+    border-top: 3px solid #000;
+    padding: 10px 0 0;
+    }
+    </style>
+</head>
+<body>
+<script>
+
+    $(function () {
+
+        $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 0,
+            max: 5000,
+            from: 1000,
+            to: 4000,
+            type: 'double',
+            step: 1,
+            prefix: "$",
+            grid: true
+        });
+
+    });
+</script>
+<!-- Page contents -->
+<div style="position: relative; padding: 200px;">
+
+    <div>
+        <input type="text" id="range" value="" name="range" />
+    </div>
+
+</div>
+</body>

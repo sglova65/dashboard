@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" ng-app="RDash">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Digital Identity Dashboard</title>
+  <!-- STYLES -->
+  <!-- build:css lib/css/main.min.css -->
+  <link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.css">
+  <link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.skinHTML5.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/rdash.min.css">
+  <link rel="stylesheet" type="text/css" href="css/angular-ui-switch.css">
+  <link rel="stylesheet" type="text/css" href="css/digital.css">
+
+  <!-- endbuild -->
+  <!-- SCRIPTS -->
+  <!-- build:js lib/js/main.min.js -->
+  <script type="text/javascript" src="components/jquery.js"></script>
+  <script type="text/javascript" src="components/angular.min.js"></script>
+  <script type="text/javascript" src="components/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="components/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="components/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="components/angular-ui-switch.js"></script>
+  <script type="text/javascript" src="components/ion.rangeSlider.min.js"></script>
+
+
+
+  <!-- endbuild -->
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="js/dashboard.min.js"></script>
+</head>
+<body ng-controller="MasterCtrl">
+  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a ng-click="toggleSidebar()">
+            First Name Last Name &nbsp; &nbsp;
+            <img src="img/smallblackuserresize.png">
+          </a>
+        </li>
+        <!--<li class="sidebar-title"><span>NAVIGATION</span></li>-->
+        <li class="sidebar-list">
+          <a href="#"><img src="img/dashboardsmall20*20.png"> &nbsp;  DASHBOARD </a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#/tables"><img src="img/configurationsmall.png">&nbsp; &nbsp;CONFIGURATION</a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- End Sidebar -->
+
+    <div id="content-wrapper">
+      <div class="page-content">
+
+        <!-- Header Bar -->
+        <div class="row header">
+          <div class="col-xs-12">
+            <!--<div class="user pull-right">
+              Type here for search
+            </div>-->
+            <div style="margin-top:15px" class="user pull-right">
+              <input style="border:none;text-align:center;color:#b5b2b2"  type="text" value="Type here for search">
+              <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                <img src="img/magnifying.png">
+              </a>
+            </div>
+            <div class="page" style="width: 1000px;margin-top: 10px;text-align: center;color: #ff9900;font-size: 27px;">
+              COSTA BANK
+            </div>
+          </div>
+        </div>
+        <!-- End Header Bar -->
+
+        <!-- Main Content -->
+        <div ui-view></div>
+
+      </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+  </div><!-- End Page Wrapper -->
+</body>
+</html>
